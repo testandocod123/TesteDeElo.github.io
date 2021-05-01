@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Elo</title>
+    <style>
+
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+        }
+
+        body{
+            background-color: #fa4454;
+        }
+
+        .container{
+            background-color: #364966;
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+            display: block;
+            width: 300px;
+            border-radius: 15px;
+            min-height: 230px;
+        }
+
+        p#msg{
+            font-size: 30px;
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+        }
+
+        input#nome{
+            background-color: #B7CE63;
+            border-style: hidden;
+            border-radius: 5px;
+            height: 30px;
+            text-align: center;
+            width: 260px;
+            min-width: 160px;
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        input#btn{
+            background-color: #B7CE63;
+            border-radius: 8px;
+            color: #ffffff;
+            width: 100px;
+            height: 60px;
+            font-size: large;
+            border-style: hidden;
+            cursor: pointer;
+        }
+
+        .img{
+            display: none;
+            justify-content: center;
+        }
+
+        a#link{
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            margin: auto;
+            text-align: center;
+            font-size: 30px;
+        }
+        div#divLink{
+            text-align: center;
+            justify-content: center;
+            background-color: #364966;
+            height: 40px;
+            width: 300px;
+            margin: auto;
+            display: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <h1>Bem Vindo Ao Teste de Elo</h1>
+
+            <p></p>
+                <input type="text" id="nome" placeholder="Digite Seu Nick!" required>
+                <br> <br>
+                <input type="button" onclick="enviar()" value="Enviar" id="btn" title="Tem mais de 1 resultado para cada player!">
+            <p id="msg"></p>
+        </div>
+        <div class="img">
+            <img id="gif" src=''>
+        </div> <br><br><br>
+       <div id="divLink">
+         <p id="plink"><a href="" id='link' target="_blank">Dica Para Mudar</a></p>
+       </div>
+    </div> 
+
+    <script>
+        let img = null
+        let name = null
+        let RandMsg = '';
+        let msgn = null
+        let gif = null
+        let link = null
+        let divLink = null
+
+        function rand({min = 0, max = 1000}) {
+            const valor = Math.random() * (max - min) + min
+            return Math.floor(valor)
+            }
+
+                const obj = {max: 6, min: 1}
+                console.log(rand(obj))
+        
+        function textosJoao(valor, msgn, gif) {
+            let ranNumJ = rand({max: 6, min: 1})
+            gif = document.querySelector('#gif')
+            msgn = document.querySelector('#msg')
+            divLink = document.querySelector('#divLink')
+            link = document.querySelector('#link')
+            divLink.style.display = 'block';
+            link.href = 'https://dotesports.com/br/valorant/news/como-desinstalar-valorant#:~:text=Para%20fazer%20isso%2C%20%C3%A9%20s%C3%B3,programas%22%20na%20barra%20de%20pesquisa.&text=Dali%2C%20des%C3%A7a%20at%C3%A9%20%E2%80%9CRiot%20Vanguard,fa%C3%A7a%20o%20mesmo%20para%20VALORANT.'
+            if (ranNumJ == 1) {
+                msgn.innerHTML = 'Mama prata'
+                gif.src = 'https://media1.tenor.com/images/4887d7acaf84d4f37ed78ceb77373a4f/tenor.gif?itemid=17432703';
+                gif.style.width = '600px';
+            } else if (ranNumJ == 2) {
+                msgn.innerHTML = 'O Prata que mais Mama do Brasil!'
+                gif.src = 'https://media.tenor.com/images/ff7d058ddcff1c4e167bd002ca3bafeb/tenor.gif';
+                gif.style.width = '400px';
+            } else if (ranNumJ == 3) {
+                msgn.innerHTML = 'Ouro por 2 partidas ou menos todos os dias'
+                gif.src = 'https://media1.tenor.com/images/f1294897c63a4e82da1f466dc3764b2d/tenor.gif?itemid=12303452';
+                gif.style.width = '500px';
+            } else if (ranNumJ == 4) {
+                msgn.innerHTML = 'Preso no Loop Ouro/Prata'
+                gif.src = 'https://media1.tenor.com/images/83e62c2af5fc7f2e883a9fc6cb230689/tenor.gif?itemid=5040429';
+                gif.style.width = '500px';
+            
+            } else if (ranNumJ == 5) {
+                msgn.innerHTML = 'Prata com Skill de Ferro'
+                gif.src = 'https://media.tenor.com/images/be25d0a234cedb9e78802b1f6559d6ae/tenor.gif';
+                gif.style.width = '500px';
+            }
+        }
+
+        function textosGrumby(valor, msgn, gif) {
+            let randNum = rand({max: 5, min: 1})
+            gif = document.querySelector('#gif')
+            msgn = document.querySelector('#msg')
+            divLink = document.querySelector('#divLink')
+            divLink.style.display = 'none';
+            if (randNum == 1) {
+                msgn.innerHTML = 'Ouro 2 Stompador de Pratinha'
+                gif.src = 'https://media1.tenor.com/images/63111ece5fb4b522ef8cc9d455358621/tenor.gif?itemid=14040660';
+            } else if (randNum == 2) {
+                msgn.innerHTML = 'Ouro 2 amassador de Diamantes'
+                gif.src = 'https://media1.tenor.com/images/3cd6787894f586db8b61d630f9dd73e4/tenor.gif?itemid=12091595';
+            } else if (randNum == 3) {
+                msgn.innerHTML = 'Ouro 2 Bagaçador de Ouro 1'
+                gif.src = 'https://media1.tenor.com/images/ca8863696afc7b3c77bda891c66fafb2/tenor.gif?itemid=9557336';
+            } else if (randNum == 4) {
+                msgn.innerHTML = 'High level Mind Game Ouro 2'
+                gif.src = 'https://media1.tenor.com/images/fb28734b3d503faebc0cda39a5b1ea3a/tenor.gif?itemid=16041883';
+            }
+        }
+
+        function textosRiku(valor, msgn, gif, link) {
+            let randNum = rand({max: 6, min: 1})
+            gif = document.querySelector('#gif')
+            msgn = document.querySelector('#msg')
+            divLink = document.querySelector('#divLink')
+            divLink.style.display = 'block';
+            link = document.querySelector('#link')
+            
+            if (randNum == 1) {
+                msgn.innerHTML = 'Ourinho EloJobado nojento'
+                gif.src = 'https://data.whicdn.com/images/317332818/original.gif';
+                link.href = 'https://www.youtube.com/watch?v=zyX9PtK9vVE';
+                gif.style.width = '500px';
+            } else if (randNum == 2) {
+                msgn.innerHTML = 'O player que mais desiste do Brasil'
+                gif.src = 'https://media.tenor.com/images/f65e618e3b31182c5473c1f9c434e6ad/tenor.gif';
+                link.href = 'https://www.youtube.com/watch?v=tAl8RCPml3Q';
+                gif.style.width = '500px';
+            } else if (randNum == 3) {
+                msgn.innerHTML = 'O ouro mais gado do Brasil'
+                gif.src = 'https://media.tenor.com/images/75465808a57fdf306bc9445e1936aa4a/tenor.gif';
+                link.href= 'https://www.youtube.com/watch?v=bg_8wPaazIc';
+                gif.style.width = '500px';
+            } else if (randNum == 4) {
+                msgn.innerHTML = 'Já Gadou Hoje, Amigão ?'
+                gif.src = 'https://media.tenor.com/images/6a12a33514fc6846dfd4f3353f77745f/tenor.gif';
+                link.href= 'https://www.youtube.com/watch?v=bg_8wPaazIc';
+                gif.style.width = '500px';
+            } else if (randNum == 5) {
+                msgn.innerHTML = 'Ourinho que ate tenta, mas não consegue.'
+                gif.src = 'https://media1.tenor.com/images/a9acc9e21d5ca8fc9ffbe60ca92e8fa4/tenor.gif?itemid=4502686';
+                gif.style.width = '500px';
+                link.href = 'https://www.youtube.com/watch?v=tAl8RCPml3Q';
+            }
+        }
+
+        function textosRam(valor, msgn, gif) {
+            let randNum = rand({max: 6, min: 1})
+            gif = document.querySelector('#gif')
+            msgn = document.querySelector('#msg')
+            divLink = document.querySelector('#divLink')
+            divLink.style.display = 'block';
+            link = document.querySelector('#link')
+            if (randNum == 1) {
+                msgn.innerHTML = 'Diamante Fake que Mama Pra Ouro'
+                gif.src = 'https://media.tenor.com/images/567afae65403319189fd05f95bb8ddb9/tenor.gif';
+                gif.style.width = '500px';
+                link.href = 'https://www.youtube.com/watch?v=3Pbsh0j9jBE';
+            } else if (randNum == 2) {
+                msgn.innerHTML = 'Diamante no lobby, level prata na partida'
+                gif.src = 'https://media1.tenor.com/images/ae047a15a3a2c4adf7bed94e7d16e64f/tenor.gif?itemid=10778291';
+                link.href = 'https://www.youtube.com/watch?v=3Pbsh0j9jBE';
+            } else if (randNum == 3) {
+                msgn.innerHTML = 'Diamante que só clica jogando fora do proprio elo'
+                gif.src = 'https://media.tenor.com/images/5f40f7cadfee5b2b3eec195df5d5d939/tenor.gif';
+                gif.style.width = '500px';
+                link.href = 'https://www.youtube.com/watch?v=3Pbsh0j9jBE';
+            } else if (randNum == 4) {
+                msgn.innerHTML = 'Diamante que fica abaixo da party de Ouro e Prata'
+                gif.src = 'https://media.tenor.com/images/6943cd9bb744533464c2edd86f7039f3/tenor.gif';
+                gif.style.width = '500px';
+                link.href = 'https://www.youtube.com/watch?v=3Pbsh0j9jBE';
+            } else if (randNum == 5) {
+                msgn.innerHTML = 'Diamante que é salvo pela party de Ouro'
+                gif.src = 'https://thumbs.gfycat.com/ActualRequiredHoiho-size_restricted.gif';
+                gif.style.width = '500px';
+                link.href = 'https://www.youtube.com/watch?v=3Pbsh0j9jBE';
+            }
+        }
+
+
+        function enviar(name, img, msgn, gif){
+            name = document.querySelector('#nome').value
+            img = document.querySelector('.img').value
+            msgn = document.querySelector('#msg')
+            if (name == 'João' || name == 'joao' || name == 'joão' || name == 'Joao' || name == 'delas' || name == 'joao delas' || name == 'João Delas' ) {
+                
+                document.querySelector('.img').style.display = 'flex';
+                textosJoao() 
+            } else if (name == 'rayquaza' || name == 'riku' || name == 'rikugadao' || name == 'rikuzinho' || name == 'riku') {
+                textosRiku()
+                document.querySelector('.img').style.display = 'flex';
+                
+            } else if (name == 'Ram' || name == 'ram' || name == 'Emilia Tan' || name == 'emilia tan' || name == 'emilia' || name == 'ramzinha') {
+                textosRam()
+                document.querySelector('.img').style.display = 'flex';
+                
+            } else if (name == 'Grumby' || name == 'grumby' || name == 'grumbai' || name == 'BP Ranz' || name == 'ranz') {
+                textosGrumby()
+                document.querySelector('.img').style.display = 'flex';
+                
+            } else if (name == '') {
+                msg.innerHTML = 'Digite um nick!'
+                document.querySelector('.img').style.display = 'none';
+                limparBox()
+                clean(divLink)
+            }   else {
+                document.querySelector('.img').style.display = 'none';
+                msgn.innerHTML = 'Nick Não Encontrado'
+                limparBox()
+                clean(divLink)
+            }
+        }
+
+
+        function limparBox() {
+            document.querySelector('#nome').value = '';
+        }
+
+        
+
+        function clean(divLink) {
+            divLink = document.querySelector('#divLink')
+            divLink.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
